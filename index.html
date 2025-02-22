@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="estilos.css"/>
+        <title> Orbain</title>
+        <link rel="icon" type="image/png" href="img/favicon.png">
+    </head>
+    
+    <!--                      -->
+    <header id="arribaso" class="header"> 
+    
+        <div id="logo" class="izq">
+    <img src="img/logorb.png" class="logorb">
+     </div>
+    
+     <div id="icons" class="dcha">
+     <div>
+     <a id="insta" href="https://www.instagram.com/orbainnn/" target="_blank">
+        <img src="img/logoinsta.png" class="imgtxiki" alt="Descripción de la imagen"> </a>
+     </div>
+    
+     <div>
+        <a id="yt" href="https://www.youtube.com/playlist?list=PLPI_is408qvCdRe4-469PDOCwbhtJx8bS" target="_blank">
+           <img src="img/logoyt.png" class="imgtxiki" alt="Descripción de la imagen"> </a>
+        </div>
+    
+    
+     </header>
+     <body>
+        <div id="juego">
+            
+            <div id="introjuego">
+        <h1>¡Prueba tu suerte!<br><br>El juego consiste en sacar 
+            los 6 dados en orden (orbain).
+            Si el dado sacado no es el que tocaba, 
+            vuelves a empezar.</h1>
+        <h2><br></h2>
+            </div>
+        <div id="imglayer">
+        <img id="gif" src="img/barril.png" alt="GIF animado">
+        </div>
+
+        <div id="botones">
+        <button onclick="sacarLetra()">Sacar dado</button>
+        <button onclick="reiniciarJuego()">Reiniciar</button>
+    </div>
+        
+        <div id="prodados">
+            <div id="txtp"><h1>Progreso: </h1> </div>
+            <img id="imagenProgreso" src="img/p0.png" alt="Prodados">
+        </div>
+    </div>
+        
+
+        <script>
+            let letras = ['o', 'r', 'b', 'a', 'i', 'n'];
+ let letrasDisponibles = [...letras]; // Copia para ir eliminando letras extraídas
+ let progreso = []; // Letras correctas en orden
+
+function sacarLetra() {
+    document.getElementById("gif").src = `img/barril.gif`;
+ if (letrasDisponibles.length === 0) {
+ console.log("Ya no quedan letras. Reiniciando el juego...");
+ reiniciarJuego();
+ return;
+ }
+// Elegir una letra aleatoria de las disponibles  
+let indice = Math.floor(Math.random() * letrasDisponibles.length);  
+let letraSacada = letrasDisponibles.splice(indice, 1)[0]; // Eliminar y obtener la letra  
+document.getElementById("gif").src = `img/anim${letraSacada}.gif`;
+console.log(`Letra extraída: ${letraSacada}`);  
+
+// Verificar si la letra es la correcta en el orden esperado  
+if (letraSacada === letras[progreso.length]) {  
+    progreso.push(letraSacada);  
+    console.log(`Progreso actual: ${progreso.join("")}`);
+    document.getElementById("imagenProgreso").src = `img/p${progreso.length}.png`;  
+
+    // Si completamos "orbain", hemos ganado  
+    if (progreso.length === letras.length) {  
+        console.log("¡Has completado 'orbain' correctamente! 🎉");  
+        reiniciarJuego();  
+    }  
+} else {  
+    console.log(`Error: '${letraSacada}' no es la letra correcta en este momento. Juego reiniciado.`);  
+    reiniciarJuego();  
+} 
+
+}
+function reiniciarJuego() {
+ letrasDisponibles = [...letras]; // Restaurar letras
+ progreso = []; // Reiniciar progreso
+ console.log("Juego reiniciado.");
+ document.getElementById("imagenProgreso").src = `img/p${0}.png`;
+ 
+}
+
+            
+        </script>
+   
+    
+    
+    
+    
+    
+    
+    </body>
+</html>
