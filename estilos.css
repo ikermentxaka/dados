@@ -175,5 +175,5 @@ padding-top: 3em;
   }
   #imagenProgreso{
    padding-left: 2em;
-    width: 30em;
+    max-width: 30em;
   }
