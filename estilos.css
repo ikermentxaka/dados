@@ -14,7 +14,7 @@
     
 }	
 h2{
-    font-size:2em;
+    font-size:3em;
 }
 body {
 	padding: 0px;
@@ -38,7 +38,7 @@ body::before {
 	padding: 25px;
 }
 #arribaso{
- width: 100%; height:60px; background-color: black;
+ width: 100%; height:3em; background-color: black;
 }
 .imgtxiki{
 	width:30px;
@@ -171,9 +171,11 @@ button {
   #prodados{
     display: flex;
     justify-content: center;
+    gap: 20px;
   }
   #txtp{
 padding-top: 3em;
+size: 3em;
   }
   #imagenProgreso{
    padding-left: 2em;
