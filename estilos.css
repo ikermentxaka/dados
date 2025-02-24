@@ -13,7 +13,9 @@
 	font-family: "Product Sans Regular";
     
 }	
-
+h2{
+    font-size:2em;
+}
 body {
 	padding: 0px;
     background: url('monogram.png');
