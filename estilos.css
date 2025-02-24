@@ -41,7 +41,7 @@ body::before {
  width: 100%; height:5em; background-color: black;
 }
 .imgtxiki{
-	width:30px;
+	width:3em;
 	filter: invert(100%);
 	/*Se pone punto en vez de # porque necesita un selector de clase*/
 }
@@ -69,8 +69,8 @@ body::before {
 }
 
 .dcha {
-   width: 20px;
-   padding-right: 90px;
+   width: 5em;
+   padding-right: 4em;
    gap: 20px;
    display: flex;
    justify-content: space-between;
