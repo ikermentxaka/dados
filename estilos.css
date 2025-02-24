@@ -46,7 +46,7 @@ body::before {
 	/*Se pone punto en vez de # porque necesita un selector de clase*/
 }
 .logorb{
-	width:150px;
+	width:12em;
 	filter: invert(100%);
 }
 
