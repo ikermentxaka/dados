@@ -31,7 +31,7 @@
         <div id="juego">
             
             <div id="introjuego">
-        <h1>¡Prueba tu suerte!<br><br>El juego consiste en sacar 
+        <h1 id="toptext">¡Prueba tu suerte!<br><br>El juego consiste en sacar 
             los 6 dados en orden (orbain).
             Si el dado sacado no es el que tocaba, 
             vuelves a empezar.</h1>
@@ -80,7 +80,11 @@ if (letraSacada === letras[progreso.length]) {
     // Si completamos "orbain", hemos ganado  
     if (progreso.length === letras.length) {  
         console.log("¡Has completado 'orbain' correctamente! 🎉");  
-          
+        const hh = String(ahora.getHours()).padStart(2, '0');
+      const mm = String(ahora.getMinutes()).padStart(2, '0');
+        const victoria = `Enhorabuena!! <br><br> Has conseguido todos los dados en orden!! Código:${mm}${hh}`
+        const h1 = document.getElementById('textocambio');
+      if (h1) h1.textContent = victoria;   
     }  
 } else {  
     console.log(`Error: '${letraSacada}' no es la letra correcta en este momento. Juego reiniciado.`);  
@@ -106,4 +110,5 @@ function reiniciarJuego() {
     
     
     </body>
+
 </html>
