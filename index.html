@@ -80,11 +80,17 @@ if (letraSacada === letras[progreso.length]) {
     // Si completamos "orbain", hemos ganado  
     if (progreso.length === letras.length) {  
         console.log("¡Has completado 'orbain' correctamente! 🎉");  
-        const hh = String(ahora.getHours()).padStart(2, '0');
-      const mm = String(ahora.getMinutes()).padStart(2, '0');
-        const victoria = `Enhorabuena!! <br><br> Has conseguido todos los dados en orden!! Código:${mm}${hh}`
-        const h1 = document.getElementById('textocambio');
-      if (h1) h1.textContent = victoria;   
+        function actualizarHora() {
+            const ahora = new Date();
+            const hh = String(ahora.getHours()).padStart(2, '0');
+            const mm = String(ahora.getMinutes()).padStart(2, '0');
+            const ss = String(ahora.getSeconds()).padStart(2, '0');
+        const victoria = `Enhorabuena!!  <br><br>
+     Has conseguido todos los dados en orden!!<br> Código:${mm}${ss}${hh}`;
+     document.getElementById("toptext").innerHTML = victoria;
+        const h1 = document.getElementById('toptext').innerHTML;
+      if (h1) h1.textContent = victoria;
+            }actualizarHora();   
     }  
 } else {  
     console.log(`Error: '${letraSacada}' no es la letra correcta en este momento. Juego reiniciado.`);  
@@ -112,3 +118,4 @@ function reiniciarJuego() {
     </body>
 
 </html>
+
