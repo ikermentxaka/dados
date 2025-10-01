@@ -60,6 +60,8 @@
  let letrasDisponibles = [...letras]; // Copia para ir eliminando letras extraídas
  let progreso = []; // Letras correctas en orden
 var checkpointActive = new Boolean(false);
+let progresoCheckpoint = [];    
+let letrasDispoCheckpoint = [];
 document.getElementById("btnCheckpoint").style.visibility = "hidden";
             
 function sacarLetra() {
@@ -107,15 +109,18 @@ if (letraSacada === letras[progreso.length]) {
 
 }
 function reiniciarJuego() {
+    if(checkpointActive == false){
  letrasDisponibles = [...letras]; // Restaurar letras
  progreso = []; // Reiniciar progreso
  console.log("Juego reiniciado.");
  document.getElementById("imagenProgreso").src = `img/p${0}.png`;
- 
+    }else{ letrasDisponibles=[...letrasDispoCheckpoint];
+          progreso = [...progresoCheckpoint];
+         }
 }
 function checkpoint(){
-let progresoCheckpoint = [...letrasDisponibles];    
-let LetrasDispoCheckpoint = [...letrasDisponibles];
+progresoCheckpoint = [...letrasDisponibles];    
+letrasDispoCheckpoint = [...letrasDisponibles];
 checkpointActive = true;
 DESACTIVAR EL BOTÓN DE CHECKPOINT!!!;
 document.getElementById("btnCheckpoint").style.visibility = "hidden";
@@ -132,6 +137,7 @@ document.getElementById("btnCheckpoint").style.visibility = "hidden";
     </body>
 
 </html>
+
 
 
 
