@@ -1,1 +1,128 @@
-.
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content=""width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="estilos.css"/>
+        <title> Orbain</title>
+        <link rel="icon" type="image/png" href="img/favicon.png">
+    </head>
+    
+    <!--                      -->
+    <header id="arribaso" class="header"> 
+    
+        <div id="logo" class="izq">
+    <img src="img/logorb.png" class="logorb">
+     </div>
+    
+     <div id="icons" class="dcha">
+     <div>
+     <a id="insta" href="https://www.instagram.com/orbainnn/" target="_blank">
+        <img src="img/logoinsta.png" class="imgtxiki" alt="Descripción de la imagen"> </a>
+     </div>
+    
+     <div>
+        <a id="yt" href="https://www.youtube.com/playlist?list=PLPI_is408qvCdRe4-469PDOCwbhtJx8bS" target="_blank">
+           <img src="img/logoyt.png" class="imgtxiki" alt="Descripción de la imagen"> </a>
+        </div>
+    
+    
+     </header>
+     <body>
+        <div id="juego">
+            
+            <div id="introjuego">
+        <h1 id="toptext">¡Prueba tu suerte!<br><br>El juego consiste en sacar 
+            los 6 dados en orden (orbain).
+            Si el dado sacado no es el que tocaba, 
+            vuelves a empezar.</h1>
+        <h2><br></h2>
+            </div>
+        <div id="imglayer">
+        <img id="gif" src="img/Barril.png" alt="GIF animado">
+        </div>
+
+        <div id="botones">
+        <button onclick="sacarLetra()">Sacar dado</button>
+        <button onclick="reiniciarJuego()">Reiniciar</button>
+        <button id ="btnCheckpoint" onclick="checkpoint()"> Activar checkpoint</button>    
+    </div>
+        
+        <div id="prodados">
+            <div id="txtp"><h2>Progreso: </h2> </div>
+            <img id="imagenProgreso" src="img/p0.png" alt="Prodados">
+        </div>
+    </div>
+        
+
+        <script>
+            let letras = ['o', 'r', 'b', 'a', 'i', 'n'];
+ let letrasDisponibles = [...letras]; // Copia para ir eliminando letras extraídas
+ let progreso = []; // Letras correctas en orden
+var checkpointActive = new Boolean(false);
+let progresoCheckpoint = [];    
+let letrasDispoCheckpoint = [];
+document.getElementById("btnCheckpoint").style.visibility = "hidden";
+            
+function sacarLetra() {
+    document.getElementById("gif").src = `img/barril.gif`;
+ if (letrasDisponibles.length === 0) {
+ console.log("Ya no quedan letras. Reiniciando el juego...");
+ reiniciarJuego();
+ return;
+ }
+// Elegir una letra aleatoria de las disponibles  
+let indice = Math.floor(Math.random() * letrasDisponibles.length);  
+let letraSacada = letrasDisponibles.splice(indice, 1)[0]; // Eliminar y obtener la letra  
+document.getElementById("gif").src = `img/anim${letraSacada}.gif`;
+console.log(`Letra extraída: ${letraSacada}`);  
+
+// Verificar si la letra es la correcta en el orden esperado  
+if (letraSacada === letras[progreso.length]) {  
+    progreso.push(letraSacada);  
+    console.log(`Progreso actual: ${progreso.join("")}`);
+    document.getElementById("imagenProgreso").src = `img/p${progreso.length}.png`;  
+
+    // Si completamos "orbain", hemos ganado  
+    if (progreso.length === letras.length) {  
+        console.log("¡Has completado 'orbain' correctamente! 🎉");  
+        function actualizarHora() {
+            const ahora = new Date();
+            const hh = String(ahora.getHours()).padStart(2, '0');
+            const mm = String(ahora.getMinutes()).padStart(2, '0');
+            const ss = String(ahora.getSeconds()).padStart(2, '0');
+        const victoria = `Enhorabuena!!  <br><br>
+     Has conseguido todos los dados en orden!!<br> Código:${mm}${ss}${hh}`;
+     document.getElementById("toptext").innerHTML = victoria;
+        const h1 = document.getElementById('toptext').innerHTML;
+      if (h1) h1.textContent = victoria;
+            }actualizarHora();   
+    }  
+} else {  
+    console.log(`Error: '${letraSacada}' no es la letra correcta en este momento. Juego reiniciado.`);  
+    reiniciarJuego();  
+} 
+    // Poner visible el botón de checkpoint
+    if (progreso.length ==2 && checkpointActive == false){
+        document.getElementById("btnCheckpoint").style.visibility = "visible";
+    }
+} //Cierre llave sacarLetra()
+            
+function reiniciarJuego() {
+ letrasDisponibles = [...letras]; // Restaurar letras
+ progreso = []; // Reiniciar progreso
+ console.log("Juego reiniciado.");
+ document.getElementById("imagenProgreso").src = `img/p${0}.png`;
+}        </script>
+       
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
