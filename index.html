@@ -45,6 +45,7 @@
         <div id="botones">
         <button onclick="sacarLetra()">Sacar dado</button>
         <button onclick="reiniciarJuego()">Reiniciar</button>
+        <button onclick="checkpoint()"> Activar checkpoint</button>    
     </div>
         
         <div id="prodados">
@@ -58,7 +59,9 @@
             let letras = ['o', 'r', 'b', 'a', 'i', 'n'];
  let letrasDisponibles = [...letras]; // Copia para ir eliminando letras extraídas
  let progreso = []; // Letras correctas en orden
-
+var checkpointActive = new Boolean(false);
+document.getElementById("btnCheckpoint").style.visibility = "hidden";
+            
 function sacarLetra() {
     document.getElementById("gif").src = `img/barril.gif`;
  if (letrasDisponibles.length === 0) {
@@ -77,7 +80,11 @@ if (letraSacada === letras[progreso.length]) {
     progreso.push(letraSacada);  
     console.log(`Progreso actual: ${progreso.join("")}`);
     document.getElementById("imagenProgreso").src = `img/p${progreso.length}.png`;  
-
+// Poner visible el botón de checkpoint
+    if (progreso.length ==2 && checkpointActive == false){
+        ACTIVAR BOTÓN DE CHECKPOINT;
+        document.getElementById("btnCheckpoint").style.visibility = "visible";
+    }
     // Si completamos "orbain", hemos ganado  
     if (progreso.length === letras.length) {  
         console.log("¡Has completado 'orbain' correctamente! 🎉");  
@@ -106,7 +113,13 @@ function reiniciarJuego() {
  document.getElementById("imagenProgreso").src = `img/p${0}.png`;
  
 }
-
+function checkpoint(){
+let progresoCheckpoint = [...letrasDisponibles];    
+let LetrasDispoCheckpoint = [...letrasDisponibles];
+checkpointActive = true;
+DESACTIVAR EL BOTÓN DE CHECKPOINT!!!;
+document.getElementById("btnCheckpoint").style.visibility = "hidden";
+}
             
         </script>
    
@@ -119,5 +132,6 @@ function reiniciarJuego() {
     </body>
 
 </html>
+
 
 
