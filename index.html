@@ -116,6 +116,8 @@ function reiniciarJuego() {
  document.getElementById("imagenProgreso").src = `img/p${0}.png`;
     }else{ letrasDisponibles=[...letrasDispoCheckpoint];
           progreso = [...progresoCheckpoint];
+           console.log("Vuelta al checkpoint.");
+ document.getElementById("imagenProgreso").src = `img/p${2}.png`;
          }
 }
 function checkpoint(){
@@ -130,6 +132,7 @@ document.getElementById("btnCheckpoint").style.visibility = "hidden";
     </body>
 
 </html>
+
 
 
 
