@@ -102,10 +102,7 @@ if (letraSacada === letras[progreso.length]) {
     console.log(`Error: '${letraSacada}' no es la letra correcta en este momento. Juego reiniciado.`);  
     reiniciarJuego();  
 } 
-    // Poner visible el botón de checkpoint
-    if (progreso.length ==2 && checkpointActive == false){
-        document.getElementById("btnCheckpoint").style.visibility = "visible";
-    }
+    
 } //Cierre llave sacarLetra()
             
 function reiniciarJuego() {
