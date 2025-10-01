@@ -84,7 +84,6 @@ if (letraSacada === letras[progreso.length]) {
     document.getElementById("imagenProgreso").src = `img/p${progreso.length}.png`;  
 // Poner visible el botón de checkpoint
     if (progreso.length ==2 && checkpointActive == false){
-        ACTIVAR BOTÓN DE CHECKPOINT;
         document.getElementById("btnCheckpoint").style.visibility = "visible";
     }
     // Si completamos "orbain", hemos ganado  
@@ -106,8 +105,8 @@ if (letraSacada === letras[progreso.length]) {
     console.log(`Error: '${letraSacada}' no es la letra correcta en este momento. Juego reiniciado.`);  
     reiniciarJuego();  
 } 
-
-}
+} //Cierre llave sacarLetra()
+            
 function reiniciarJuego() {
     if(checkpointActive == false){
  letrasDisponibles = [...letras]; // Restaurar letras
@@ -122,21 +121,15 @@ function checkpoint(){
 progresoCheckpoint = [...letrasDisponibles];    
 letrasDispoCheckpoint = [...letrasDisponibles];
 checkpointActive = true;
-DESACTIVAR EL BOTÓN DE CHECKPOINT!!!;
 document.getElementById("btnCheckpoint").style.visibility = "hidden";
 }
             
         </script>
-   
-    
-    
-    
-    
-    
-    
+       
     </body>
 
 </html>
+
 
 
 
