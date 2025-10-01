@@ -82,10 +82,7 @@ if (letraSacada === letras[progreso.length]) {
     progreso.push(letraSacada);  
     console.log(`Progreso actual: ${progreso.join("")}`);
     document.getElementById("imagenProgreso").src = `img/p${progreso.length}.png`;  
-// Poner visible el botón de checkpoint
-    if (progreso.length ==2 && checkpointActive == false){
-        document.getElementById("btnCheckpoint").style.visibility = "visible";
-    }
+
     // Si completamos "orbain", hemos ganado  
     if (progreso.length === letras.length) {  
         console.log("¡Has completado 'orbain' correctamente! 🎉");  
@@ -105,6 +102,10 @@ if (letraSacada === letras[progreso.length]) {
     console.log(`Error: '${letraSacada}' no es la letra correcta en este momento. Juego reiniciado.`);  
     reiniciarJuego();  
 } 
+    // Poner visible el botón de checkpoint
+    if (progreso.length ==2 && checkpointActive == false){
+        document.getElementById("btnCheckpoint").style.visibility = "visible";
+    }
 } //Cierre llave sacarLetra()
             
 function reiniciarJuego() {
@@ -129,6 +130,7 @@ document.getElementById("btnCheckpoint").style.visibility = "hidden";
     </body>
 
 </html>
+
 
 
 
