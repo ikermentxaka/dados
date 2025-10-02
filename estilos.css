@@ -10,7 +10,7 @@
 
 *{
 	margin: 0px;
-	font-family: "Product Sans Regular";
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }	
 h2{
@@ -184,3 +184,4 @@ padding-top: 3em;
 #btnCheckpoint{
 	display: none;
 }
+
