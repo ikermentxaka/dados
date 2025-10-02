@@ -45,7 +45,7 @@
         <div id="botones">
         <button onclick="sacarLetra()">Sacar dado</button>
         <button onclick="reiniciarJuego()">Reiniciar</button>
-        <button id ="btnCheckpoint" onclick="checkpoint()"> Activar checkpoint</button>    
+           
     </div>
         
         <div id="prodados">
@@ -102,36 +102,26 @@ if (letraSacada === letras[progreso.length]) {
     console.log(`Error: '${letraSacada}' no es la letra correcta en este momento. Juego reiniciado.`);  
     reiniciarJuego();  
 } 
-    // Poner visible el botón de checkpoint
-    if (progreso.length ==2 && checkpointActive == false){
-        document.getElementById("btnCheckpoint").style.visibility = "visible";
-    }
+  
 } //Cierre llave sacarLetra()
             
 function reiniciarJuego() {
-    if(checkpointActive == false){
+   
  letrasDisponibles = [...letras]; // Restaurar letras
  progreso = []; // Reiniciar progreso
  console.log("Juego reiniciado.");
  document.getElementById("imagenProgreso").src = `img/p${0}.png`;
-    }else{ letrasDisponibles=[...letrasDispoCheckpoint];
-          progreso = [...progresoCheckpoint];
-           console.log("Vuelta al checkpoint.");
- document.getElementById("imagenProgreso").src = `img/p${2}.png`;
+   
          }
 }
-function checkpoint(){
-progresoCheckpoint = [...letrasDisponibles];    
-letrasDispoCheckpoint = [...letrasDisponibles];
-checkpointActive = true;
-document.getElementById("btnCheckpoint").style.visibility = "hidden";
-}
+
             
         </script>
        
     </body>
 
 </html>
+
 
 
 
