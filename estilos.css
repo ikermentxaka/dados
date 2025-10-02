@@ -136,7 +136,7 @@ padding-top: 30px;
 }
 #juego{
     padding: 30px;
-	padding-top: 100px;
+	padding-top: 200px;
 }
 #introjuego{
     display: flex;
@@ -184,4 +184,5 @@ padding-top: 3em;
 #btnCheckpoint{
 	display: none;
 }
+
 
